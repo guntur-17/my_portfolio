@@ -47,7 +47,11 @@ class _HomeCarouselState extends State<HomeCarousel> {
         children: [
           Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * 0.07,
+                top: getValueForScreenType(
+                    context: context,
+                    mobile: MediaQuery.sizeOf(context).height * 0.07,
+                    desktop: MediaQuery.sizeOf(context).height * 0.07,
+                    tablet: MediaQuery.sizeOf(context).height * 0.05),
                 bottom: MediaQuery.sizeOf(context).height * 0.02),
             child: Text("My Past Work",
                 style: StyleOnText()
@@ -63,7 +67,8 @@ class _HomeCarouselState extends State<HomeCarousel> {
           CarouselSlider(
             items: dataSlider,
             options: CarouselOptions(
-              height: 500.0,
+              height: getValueForScreenType(
+                  context: context, mobile: 500, desktop: 500, tablet: 450),
               enlargeCenterPage: true,
               autoPlay: true,
               aspectRatio: 16 / 9,

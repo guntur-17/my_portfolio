@@ -4,6 +4,7 @@ import 'package:portofolio/model/brand_icon_model.dart';
 import 'package:portofolio/service/brand_icon_service.dart';
 import 'package:portofolio/ui/common/styles.dart';
 import 'package:portofolio/ui/views/home/widgets/footer_widget/brand_icon.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeFooter extends StatefulWidget {
   const HomeFooter({super.key});
@@ -31,7 +32,11 @@ class _HomeFooterState extends State<HomeFooter> {
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.1,
+            height: getValueForScreenType(
+                context: context,
+                mobile: MediaQuery.sizeOf(context).height * 0.1,
+                desktop: MediaQuery.sizeOf(context).height * 0.1,
+                tablet: MediaQuery.sizeOf(context).height * 0.05),
           ),
           Text(
             'Pleasured to know you.',

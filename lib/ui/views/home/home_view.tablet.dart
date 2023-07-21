@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:portofolio/ui/views/home/widgets/home_carousel.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../common/app_constants.dart';
 import 'home_viewmodel.dart';
 import 'widgets/home_footer.dart';
 import 'widgets/home_intro.dart';
@@ -26,7 +25,7 @@ class HomeViewTablet extends ViewModelWidget<HomeViewModel> {
               children: [
                 SizedBox(
                   // width: kdDesktopMaxContentWidth,
-                  height: kdDesktopMaxContentHeight,
+                  height: 600,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

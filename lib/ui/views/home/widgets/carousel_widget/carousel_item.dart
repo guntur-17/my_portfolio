@@ -34,10 +34,11 @@ class CarouselItem extends StatelessWidget {
               child: Image.asset(
                 data.image!.singleWhere((element) => element.id == 1).image!,
                 width: getValueForScreenType(
-                    context: context, mobile: 160, desktop: 240),
+                    context: context, mobile: 160, desktop: 240, tablet: 192),
                 fit: getValueForScreenType(
                   context: context,
                   desktop: BoxFit.fitHeight,
+                  tablet: BoxFit.fitHeight,
                   mobile: BoxFit.fitWidth,
                 ),
               ),
@@ -75,7 +76,7 @@ class CarouselItem extends StatelessWidget {
                   ),
                   SizedBox(
                     height: getValueForScreenType(
-                        context: context, mobile: 0, desktop: 200, tablet: 120),
+                        context: context, mobile: 0, desktop: 200, tablet: 100),
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: getValueForScreenType(
