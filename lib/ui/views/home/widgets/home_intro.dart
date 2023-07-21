@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portofolio/ui/common/styles.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeIntro extends StatelessWidget {
   const HomeIntro({super.key});
@@ -23,7 +24,10 @@ class HomeIntro extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height * 0.05,
           ),
           SizedBox(
-            width: MediaQuery.sizeOf(context).width * 0.4,
+            width: getValueForScreenType(
+                context: context,
+                mobile: MediaQuery.sizeOf(context).width * 0.8,
+                desktop: MediaQuery.sizeOf(context).width * 0.4),
             child: Text(
               'I graduate from Gunadarma University. I have experience built application using Flutter. My past experience heavily leaning toward front-end development.\n But no, i dont design stuff, i collaborated with 3rd party UI/UX designer.\n As for back-end, my understanding so far goes as far as implementing and integrating it with the front-end. I personally quite a curious person, and willing to learn new thing or two.',
               style: StyleOnText().ktsBodyRegular(context).copyWith(),

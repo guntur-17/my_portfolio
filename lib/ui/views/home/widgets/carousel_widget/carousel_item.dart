@@ -33,7 +33,13 @@ class CarouselItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 data.image!.singleWhere((element) => element.id == 1).image!,
-                fit: BoxFit.fitHeight,
+                width: getValueForScreenType(
+                    context: context, mobile: 160, desktop: 240),
+                fit: getValueForScreenType(
+                  context: context,
+                  desktop: BoxFit.fitHeight,
+                  mobile: BoxFit.fitWidth,
+                ),
               ),
             ),
             SizedBox(

@@ -13,7 +13,7 @@ class StyleOnText {
   TextStyle ktsBodyRegular(context) {
     return GoogleFonts.openSans(
       fontSize:
-          getValueForScreenType(context: context, mobile: 14, desktop: 16),
+          getValueForScreenType(context: context, mobile: 12, desktop: 16),
     );
   }
 
