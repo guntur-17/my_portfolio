@@ -6,14 +6,14 @@ class StyleOnText {
   TextStyle ktsBodyLarge(context) {
     return GoogleFonts.openSans(
       fontSize: getValueForScreenType(
-          context: context, mobile: 16, tablet: 20, desktop: 24),
+          context: context, mobile: 16, tablet: 24, desktop: 24),
     );
   }
 
   TextStyle ktsBodyRegular(context) {
     return GoogleFonts.openSans(
       fontSize: getValueForScreenType(
-          context: context, mobile: 12, tablet: 14, desktop: 16),
+          context: context, mobile: 12, tablet: 16, desktop: 16),
     );
   }
 
