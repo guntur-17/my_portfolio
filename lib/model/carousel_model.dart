@@ -1,7 +1,9 @@
+import 'image_model.dart';
+
 class CarouselModel {
   final int? id;
   final String? name;
-  final String? image;
+  final List<ImageModel>? image;
   final String? about;
 
   const CarouselModel({this.id, this.name, this.image, this.about});
@@ -9,7 +11,8 @@ class CarouselModel {
   factory CarouselModel.fromJson(Map<String, dynamic> json) => CarouselModel(
         id: json['id'],
         name: json['name'],
-        image: json['image'],
+        image: List<ImageModel>.from(
+            json['image'].map((x) => ImageModel.fromJson(x))),
         about: json['about'],
       );
 

@@ -3,6 +3,7 @@ import 'package:portofolio/ui/common/app_constants.dart';
 import 'package:portofolio/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:portofolio/ui/views/home/widgets/home_carousel.dart';
+import 'package:portofolio/ui/views/home/widgets/home_footer.dart';
 import 'package:portofolio/ui/views/home/widgets/home_intro.dart';
 import 'package:portofolio/ui/views/home/widgets/home_subtitle.dart';
 import 'package:portofolio/ui/views/home/widgets/home_title.dart';
@@ -20,7 +21,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
         backgroundColor: kcBackgroundColor,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: EdgeInsets.only(top: 16),
             child: Column(
               children: [
                 SizedBox(
@@ -50,6 +51,10 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                   height: 80,
                 ),
                 HomeCarousel(),
+                SizedBox(
+                  height: 80,
+                ),
+                HomeFooter()
               ],
             ),
           ),

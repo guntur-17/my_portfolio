@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeTopImage extends StatelessWidget {
   const HomeTopImage({super.key});
@@ -6,8 +7,9 @@ class HomeTopImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 480,
-      height: 480,
+      width: getValueForScreenType(context: context, mobile: 300, desktop: 480),
+      height:
+          getValueForScreenType(context: context, mobile: 300, desktop: 480),
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(

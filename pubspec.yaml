@@ -11,11 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_animate: ^4.1.1+1
+  flutter_svg: ^2.0.7
+  font_awesome_flutter: ^10.5.0
   google_fonts: ^5.1.0
   responsive_builder: ^0.7.0
   simple_gradient_text: ^1.2.4
   stacked: ^3.4.0
   stacked_services: ^1.1.0
+  url_launcher: ^6.1.12
   url_strategy: ^0.2.0
 
 dev_dependencies:

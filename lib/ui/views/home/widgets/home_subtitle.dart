@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portofolio/ui/common/styles.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-
-import '../../../common/styles.dart';
 
 class HomeSub extends StatelessWidget {
   const HomeSub({super.key});
@@ -10,7 +9,7 @@ class HomeSub extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       'I build application using Flutter framework.',
-      style: ktsBodyLarge.copyWith(
+      style: StyleOnText().ktsBodyLarge(context).copyWith(
           fontSize: getValueForScreenType(
               context: context, mobile: 16, desktop: 20, tablet: 16)),
       textAlign: TextAlign.center,

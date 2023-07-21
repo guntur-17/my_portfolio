@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portofolio/model/carousel_model.dart';
+import 'package:portofolio/ui/common/styles.dart';
+import 'package:portofolio/ui/views/home/widgets/carousel_widget/image_showcase.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../../../common/app_colors.dart';
-import '../../../../common/styles.dart';
 
 class CarouselItem extends StatelessWidget {
   final CarouselModel data;
@@ -30,7 +32,7 @@ class CarouselItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                data.image!,
+                data.image!.singleWhere((element) => element.id == 1).image!,
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -38,24 +40,50 @@ class CarouselItem extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width * 0.05,
             ),
             SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.5,
+              width: getValueForScreenType(
+                  context: context,
+                  mobile: MediaQuery.sizeOf(context).width * 0.3,
+                  desktop: MediaQuery.sizeOf(context).width * 0.5,
+                  tablet: MediaQuery.sizeOf(context).width * 0.4),
               // width: double.infinity,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 16.0, bottom: 32),
+                    padding: const EdgeInsets.only(top: 16.0),
                     child: Text(
                       data.name!,
-                      style: ktsBodyLarge.copyWith(color: kcBlack),
+                      style: StyleOnText()
+                          .ktsBodyLarge(context)
+                          .copyWith(color: kcBlack),
                     ),
                   ),
-                  Text(
-                    data.about!,
-                    style: ktsBodyRegular.copyWith(color: kcBlack),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Text(
+                      data.about!,
+                      style: StyleOnText()
+                          .ktsBodyRegular(context)
+                          .copyWith(color: kcBlack),
+                    ),
                   ),
-                  Row(
-                    children: [],
+                  SizedBox(
+                    height: getValueForScreenType(
+                        context: context, mobile: 0, desktop: 200, tablet: 120),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: getValueForScreenType(
+                          context: context, mobile: 0, desktop: 7, tablet: 5),
+                      // data.image!.length
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: ((context, index) {
+                        ValueKey(data.image![index]);
+                        final datas = data.image![index];
+                        // print(doctor);
+                        return ImageShowcase(data: datas);
+                      }),
+                    ),
                   )
                 ],
               ),

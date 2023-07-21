@@ -2,9 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portofolio/model/carousel_model.dart';
 import 'package:portofolio/service/carousel_service.dart';
+import 'package:portofolio/ui/common/app_colors.dart';
+import 'package:portofolio/ui/common/styles.dart';
 import 'package:portofolio/ui/views/home/widgets/carousel_widget/carousel_item.dart';
-
-import '../../../common/styles.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeCarousel extends StatefulWidget {
   const HomeCarousel({super.key});
@@ -15,13 +16,10 @@ class HomeCarousel extends StatefulWidget {
 
 class _HomeCarouselState extends State<HomeCarousel> {
   late List<CarouselModel> _data;
-  // List<Doctor> _foundDoctor = [];
 
   @override
   initState() {
-    // at the beginning, all users are shown
     _data = carouselData;
-    // _foundDoctor = allDoctor;
     super.initState();
   }
 
@@ -33,15 +31,34 @@ class _HomeCarouselState extends State<HomeCarousel> {
     return Container(
       width: double.infinity,
       height: 680,
-      decoration: const BoxDecoration(color: Color(0xff346480)),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Color(0xff346480),
+              Color(0xff346480),
+              kcBackgroundColor,
+              kcBackgroundColor
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.0, 0.4, 0.4, 1.0]),
+      ),
       child: Column(
         children: [
           Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * 0.05,
-                bottom: MediaQuery.sizeOf(context).height * 0.05),
+                top: MediaQuery.sizeOf(context).height * 0.07,
+                bottom: MediaQuery.sizeOf(context).height * 0.02),
             child: Text("My Past Work",
-                style: ktsBodyLarge.copyWith(fontWeight: FontWeight.w600)),
+                style: StyleOnText()
+                    .ktsBodyLarge(context)
+                    .copyWith(fontWeight: FontWeight.w600)),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.sizeOf(context).height * 0.05),
+            child: Text("Here are some of my past project that I've worked on.",
+                style: StyleOnText().ktsBodyRegular(context).copyWith()),
           ),
           CarouselSlider(
             items: dataSlider,
@@ -52,8 +69,9 @@ class _HomeCarouselState extends State<HomeCarousel> {
               aspectRatio: 16 / 9,
               autoPlayCurve: Curves.fastOutSlowIn,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
-              viewportFraction: 0.8,
+              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              viewportFraction: getValueForScreenType(
+                  context: context, mobile: 0.9, desktop: 0.8, tablet: 0.8),
             ),
           ),
         ],
