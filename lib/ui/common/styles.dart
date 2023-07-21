@@ -5,15 +5,15 @@ import 'package:responsive_builder/responsive_builder.dart';
 class StyleOnText {
   TextStyle ktsBodyLarge(context) {
     return GoogleFonts.openSans(
-      fontSize:
-          getValueForScreenType(context: context, mobile: 16, desktop: 24),
+      fontSize: getValueForScreenType(
+          context: context, mobile: 16, tablet: 20, desktop: 24),
     );
   }
 
   TextStyle ktsBodyRegular(context) {
     return GoogleFonts.openSans(
-      fontSize:
-          getValueForScreenType(context: context, mobile: 12, desktop: 16),
+      fontSize: getValueForScreenType(
+          context: context, mobile: 12, tablet: 14, desktop: 16),
     );
   }
 
@@ -21,8 +21,8 @@ class StyleOnText {
     return GoogleFonts.openSans(
       height: 0.95,
       fontWeight: FontWeight.w600,
-      fontSize:
-          getValueForScreenType(context: context, mobile: 60, desktop: 80),
+      fontSize: getValueForScreenType(
+          context: context, mobile: 60, tablet: 72, desktop: 80),
     );
   }
 }
