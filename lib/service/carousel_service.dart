@@ -7,17 +7,21 @@ final carouselData = <CarouselModel>[
       name: 'OneGate Application',
       image: ogImageData,
       about:
-          'OneGate is an application created for Salesman\'s attendance. With several features includes recording attendance within a certain radius of their designated store position, photos of the designated store, recording of goods taken, recording sales results, and they also can see their own sales peformance within the chart.'),
+          'OneGate is an application created for Salesman\'s attendance. With several features includes recording attendance within a certain radius of their designated store position, photos of the designated store, recording of goods taken, recording sales results, and they also can see their own sales peformance within the chart.',
+      url:
+          "https://play.google.com/store/apps/details?id=com.sakataguna.one_gate"),
   CarouselModel(
       id: 2,
       name: 'Esteh Academy',
       image: esImageData,
       about:
-          'Esteh Academy is an application with the intended purpose of being an apps to train the trainees from the related parties.'),
+          'Esteh Academy is an application with the intended purpose of being an apps to train the trainees from the related parties.',
+      url: "null"),
   CarouselModel(
       id: 3,
       name: 'Therapeutic',
       image: trImageData,
       about:
-          'Therapeutic is an application set to work as a bridge between Patient and Doctor to do appointment or as simple as consulting.'),
+          'Therapeutic is an application set to work as a bridge between Patient and Doctor to do appointment or as simple as consulting.',
+      url: "null"),
 ];

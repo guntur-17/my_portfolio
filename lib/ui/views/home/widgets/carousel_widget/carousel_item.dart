@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portofolio/model/carousel_model.dart';
 import 'package:portofolio/ui/common/styles.dart';
 import 'package:portofolio/ui/views/home/widgets/carousel_widget/image_showcase.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../common/app_colors.dart';
 
-class CarouselItem extends StatelessWidget {
+class CarouselItem extends StatefulWidget {
   final CarouselModel data;
   const CarouselItem({super.key, required this.data});
 
+  @override
+  State<CarouselItem> createState() => _CarouselItemState();
+}
+
+class _CarouselItemState extends State<CarouselItem> {
+  bool isHovering = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +40,9 @@ class CarouselItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                data.image!.singleWhere((element) => element.id == 1).image!,
+                widget.data.image!
+                    .singleWhere((element) => element.id == 1)
+                    .image!,
                 width: getValueForScreenType(
                     context: context, mobile: 160, desktop: 240, tablet: 192),
                 fit: getValueForScreenType(
@@ -58,17 +68,42 @@ class CarouselItem extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 16.0),
-                    child: Text(
-                      data.name!,
-                      style: StyleOnText()
-                          .ktsBodyLarge(context)
-                          .copyWith(color: kcBlack),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.data.name!,
+                          style: StyleOnText()
+                              .ktsBodyLarge(context)
+                              .copyWith(color: kcBlack),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        widget.data.url! == "null"
+                            ? Container()
+                            : InkWell(
+                                onHover: (hovering) {
+                                  setState(() {
+                                    isHovering = hovering;
+                                  });
+                                },
+                                onTap: () {
+                                  launchUrlString(widget.data.url!);
+                                },
+                                child: Icon(
+                                  FontAwesomeIcons.googlePlay,
+                                  color: isHovering
+                                      ? Color(0xff346480)
+                                      : Colors.black,
+                                ))
+                      ],
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Text(
-                      data.about!,
+                      widget.data.about!,
                       style: StyleOnText()
                           .ktsBodyRegular(context)
                           .copyWith(color: kcBlack),
@@ -85,8 +120,8 @@ class CarouselItem extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: ((context, index) {
-                        ValueKey(data.image![index]);
-                        final datas = data.image![index];
+                        ValueKey(widget.data.image![index]);
+                        final datas = widget.data.image![index];
                         // print(doctor);
                         return ImageShowcase(data: datas);
                       }),

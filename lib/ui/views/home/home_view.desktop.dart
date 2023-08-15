@@ -34,7 +34,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                       Center(
                         child: Column(
                           children: [
-                            verticalSpaceMassive,
+                            verticalSpaceLarge,
                             HomeTitle(),
                             horizontalSpaceLarge,
                             HomeSub(),
