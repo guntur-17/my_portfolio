@@ -15,7 +15,7 @@ class HomeIntro extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Hi, im Guntur. Nice to meet you',
+            'Hi, im Guntur. Flutter Developer live in Indonesia ',
             style: StyleOnText()
                 .ktsBodyLarge(context)
                 .copyWith(fontWeight: FontWeight.w600),
@@ -29,7 +29,7 @@ class HomeIntro extends StatelessWidget {
                 mobile: MediaQuery.sizeOf(context).width * 0.8,
                 desktop: MediaQuery.sizeOf(context).width * 0.4),
             child: Text(
-              'I graduate from Gunadarma University. I have experience built application using Flutter. My past experience heavily leaning toward front-end development.\n But no, i dont design stuff, i collaborated with 3rd party UI/UX designer.\n As for back-end, my understanding so far goes as far as implementing and integrating it with the front-end. I personally quite a curious person, and willing to learn new thing or two.',
+              'Experienced in building mobile application using Flutter. \nQuite a curious person, and willing to learn new thing or two. \nPleased to know you.',
               style: StyleOnText().ktsBodyRegular(context).copyWith(),
               textAlign: TextAlign.center,
             ),

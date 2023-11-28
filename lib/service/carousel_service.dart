@@ -8,8 +8,7 @@ final carouselData = <CarouselModel>[
       image: ogImageData,
       about:
           'OneGate is an application created for Salesman\'s attendance. With several features includes recording attendance within a certain radius of their designated store position, photos of the designated store, recording of goods taken, recording sales results, and they also can see their own sales peformance within the chart.',
-      url:
-          "https://play.google.com/store/apps/details?id=com.sakataguna.one_gate"),
+      url: "null"),
   CarouselModel(
       id: 2,
       name: 'Esteh Academy',
