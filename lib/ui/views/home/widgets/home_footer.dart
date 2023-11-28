@@ -39,7 +39,7 @@ class _HomeFooterState extends State<HomeFooter> {
                 tablet: MediaQuery.sizeOf(context).height * 0.05),
           ),
           Text(
-            'Pleasured to know you.',
+            'Pleased to know you.',
             style: StyleOnText().ktsBodyLarge(context).copyWith(),
           ),
           Padding(

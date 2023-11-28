@@ -29,7 +29,7 @@ class HomeIntro extends StatelessWidget {
                 mobile: MediaQuery.sizeOf(context).width * 0.8,
                 desktop: MediaQuery.sizeOf(context).width * 0.4),
             child: Text(
-              'Experienced in building mobile application using Flutter. \nQuite a curious person, and willing to learn new thing or two. \nPleased to know you.',
+              'Experienced in building mobile application using Flutter. \nQuite a curious person, and willing to learn new thing or two. ',
               style: StyleOnText().ktsBodyRegular(context).copyWith(),
               textAlign: TextAlign.center,
             ),
